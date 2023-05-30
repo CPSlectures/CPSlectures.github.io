@@ -1,62 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Lecture Videos</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background-color: rgb(0, 0, 71);
-      color: white
-    }
-    
-    h1 {
-      text-align: center;
-    }
-    
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    
-    th, td {
-      padding: 10px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-    
-    th {
-      background-color: #000000;
-      font-weight: bold;
-    }
-    
-    tr:hover {
-      background-color: #8f70ff;
-    }
-  </style>
+  <title>Video Links</title>
 </head>
 <body>
-  <h1>Lecture Videos</h1>
-  
-  <table>
-    <tr>
-      <th>Lecture</th>
-      <th>Video Link</th>
-    </tr>
-    <tr>
-      <td>Lecture 1</td>
-      <td><a href="https://example.com/lecture1">Watch Now</a></td>
-    </tr>
-    <tr>
-      <td>Lecture 2</td>
-      <td><a href="https://example.com/lecture2">Watch Now</a></td>
-    </tr>
-    <tr>
-      <td>Lecture 3</td>
-      <td><a href="https://example.com/lecture3">Watch Now</a></td>
-    </tr>
-    <!-- Add more rows for additional lectures -->
-  </table>
+  <div id="videoList"></div>
+
+  <script>
+    // JavaScript code to fetch and display video links
+    fetch('/videos.json')
+      .then(response => response.json())
+      .then(data => {
+        const videoListContainer = document.getElementById('videoList');
+        let html = '';
+
+        // Iterate through the video data
+        data.forEach(video => {
+          // Generate HTML for each video link
+          html += `
+            <div>
+              <h3>${video.title}</h3>
+              <p>Date: ${video.date}</p>
+              <p>Chapter: ${video.chapter}</p>
+              <a href="${video.link}">Watch Video</a>
+            </div>
+          `;
+        });
+
+        // Insert the generated HTML into the container element
+        videoListContainer.innerHTML = html;
+      })
+      .catch(error => {
+        console.error('Error fetching video data:', error);
+      });
+  </script>
 </body>
 </html>
