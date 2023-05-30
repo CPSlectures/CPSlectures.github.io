@@ -1,38 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" href="styles.css">
   <title>Video Links</title>
 </head>
 <body>
-  <div id="videoList"></div>
+  <h1>CPS Lectures</h1>
+  <a href="/class11.html">CLASS 11</a> <br />
+  <a href="/class12.html">CLASS 12</a>
 
-  <script>
-    // JavaScript code to fetch and display video links
-    fetch('/videos.json')
-      .then(response => response.json())
-      .then(data => {
-        const videoListContainer = document.getElementById('videoList');
-        let html = '';
-
-        // Iterate through the video data
-        data.forEach(video => {
-          // Generate HTML for each video link
-          html += `
-            <div>
-              <h3>${video.title}</h3>
-              <p>Date: ${video.date}</p>
-              <p>Chapter: ${video.chapter}</p>
-              <a href="${video.link}">Watch Video</a>
-            </div>
-          `;
-        });
-
-        // Insert the generated HTML into the container element
-        videoListContainer.innerHTML = html;
-      })
-      .catch(error => {
-        console.error('Error fetching video data:', error);
-      });
-  </script>
 </body>
 </html>
