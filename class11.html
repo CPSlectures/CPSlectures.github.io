@@ -2,20 +2,92 @@
 <html>
 <head>
   <link rel="stylesheet" href="../styles.css">
+  <style>
+    body {
+  margin: 0;
+}
+
+    .footer {
+      background-color: #000000;
+      padding: 20px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      color: white;
+    }
+
+    .footer a {
+      color: white;
+      text-decoration: none;
+      margin: 10px;
+    }
+    
+    .container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-bottom: 0;
+    }
+
+    .sidebar {
+      width: 50px;
+      height: 900px;
+      
+      padding: 80px;
+      background-color: #004186;
+    }
+
+    .content {
+      flex: 1;
+      padding: 10px;
+    }
+
+    .sidebar a {
+      display: block;
+      text-decoration: none;
+      color: #000;
+      font-size: 20px;
+    }
+    .center {
+      display:block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+    }
+  </style>
   <title>Video Links</title>
 </head>
 <body>
-  <h1>CPS Lectures</h1>
+  <div class="container">
+    <img src="CPS.jpg" alt="CPS Lectures Logo" width="200" height="200" class="center">
+  </div>
+  <div class="container">
+    <div class="sidebar">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="https://www.jeebooks.in/">Books and Resources
+      </a>
+    </div>
+   
 
-  <label for="dropdown">Sort by</label>
-  <select name="dropdown" id="dropdown" onchange="dropdownSort()">
-      <option value="Motion in One Dimension">Motion in One Dimension</option>
-      <option value="Chapter 2">Chapter 2</option>
-    </select>
-  </select>
+    <div class="content">
+      <h1>CPS Lectures</h1>
 
-  <div id="videoList"></div>
+      <label for="dropdown">Sort by</label>
+      <select name="dropdown" id="dropdown" onchange="dropdownSort()">
+        <option value="Motion in One Dimension">Motion in One Dimension</option>
+        <option value="Chapter 2">Chapter 2</option>
+      </select>
 
-  <script src="./class11/script.js"></script>
+      <div id="videoList"></div>
+
+      <script src="./class11/script.js"></script>
+    </div>
+  </div>
+  <div class="footer">
+    <a href="https://www.youtube.com/channel/UC3lD_-p5SOc_PzmY0kqVwFw">YouTube</a>
+    <a href="https://www.instagram.com">Instagram</a>
+    <a href="https://www.twitter.com">Twitter</a>
+    <a href="http://chandanphysicsschool.com/">Website</a>
+  </div>
 </body>
 </html>

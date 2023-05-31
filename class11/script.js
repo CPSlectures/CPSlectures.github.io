@@ -72,3 +72,12 @@ function dropdownSort() {
 
   console.log(dropdown.value);
 }
+window.onload=passwordCheck;
+function passwordCheck()
+{
+    var password = prompt("Please enter the password.");
+    if (password !== "bello")
+    {
+        passwordCheck();
+    }
+}
